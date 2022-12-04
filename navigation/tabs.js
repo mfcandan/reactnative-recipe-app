@@ -12,6 +12,7 @@ const Tabs = () => {
         tabBarIcon: () => {
           "";
         },
+        headerShown: false,
         tabBarActiveTintColor: "tomato",
         tabBarInactiveTintColor: "gray",
       })}
@@ -19,6 +20,7 @@ const Tabs = () => {
       <Tab.Screen name="Home" component={Home} />
       <Tab.Screen name="Search" component={Home} />
       <Tab.Screen name="Bookmark" component={Home} />
+      <Tab.Screen name="Likes" component={Home} />
       <Tab.Screen name="Settings" component={Home} />
     </Tab.Navigator>
   );
