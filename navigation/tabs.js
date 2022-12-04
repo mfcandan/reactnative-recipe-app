@@ -1,5 +1,7 @@
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import React from "react";
+import TabIcon from "../components/TabIcon";
+import { COLORS, icons } from "../constants";
 
 import { Home } from "../screens";
 
@@ -8,20 +10,57 @@ const Tab = createBottomTabNavigator();
 const Tabs = () => {
   return (
     <Tab.Navigator
-      screenOptions={() => ({
-        tabBarIcon: () => {
-          "";
-        },
+      screenOptions={{
         headerShown: false,
-        tabBarActiveTintColor: "tomato",
-        tabBarInactiveTintColor: "gray",
-      })}
+        tabBarShowLabel: false,
+        tabBarStyle: {
+          position: "absolute",
+          bottom: 0,
+          left: 0,
+          right: 0,
+          elevation: 0,
+          backgroundColor: COLORS.white,
+          borderTopColor: "transparent",
+          height: 100,
+        },
+      }}
     >
-      <Tab.Screen name="Home" component={Home} />
-      <Tab.Screen name="Search" component={Home} />
-      <Tab.Screen name="Bookmark" component={Home} />
-      <Tab.Screen name="Likes" component={Home} />
-      <Tab.Screen name="Settings" component={Home} />
+      <Tab.Screen
+        name="Home"
+        component={Home}
+        options={{
+          tabBarIcon: ({ focused }) => (
+            <TabIcon focused={focused} icon={icons.home} />
+          ),
+        }}
+      />
+      <Tab.Screen
+        name="Search"
+        component={Home}
+        options={{
+          tabBarIcon: ({ focused }) => (
+            <TabIcon focused={focused} icon={icons.search} />
+          ),
+        }}
+      />
+      <Tab.Screen
+        name="Bookmark"
+        component={Home}
+        options={{
+          tabBarIcon: ({ focused }) => (
+            <TabIcon focused={focused} icon={icons.bookmark} />
+          ),
+        }}
+      />
+      <Tab.Screen
+        name="Settings"
+        component={Home}
+        options={{
+          tabBarIcon: ({ focused }) => (
+            <TabIcon focused={focused} icon={icons.settings} />
+          ),
+        }}
+      />
     </Tab.Navigator>
   );
 };
