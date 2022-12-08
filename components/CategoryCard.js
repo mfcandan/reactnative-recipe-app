@@ -14,6 +14,7 @@ const CategoryCard = ({ containerStyle, categoryItem, onPress }) => {
         marginTop: 10,
         borderRadius: SIZES.radius,
         backgroundColor: COLORS.gray2,
+        ...containerStyle
       }}
     >
       <Image
