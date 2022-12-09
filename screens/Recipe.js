@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { View, Text, Animated, Image } from "react-native";
 import RecipeCreatorCardInfo from "../components/RecipeCreatorCardInfo";
+import RenderHeaderBar from "../components/RenderHeaderBar";
 import { COLORS, FONTS } from "../constants";
 
 const HEADER_HEIGHT = 350;
@@ -73,6 +74,8 @@ const Recipe = ({ navigation, route }) => {
     );
   };
 
+
+
   return (
     <View
       style={{
@@ -127,6 +130,7 @@ const Recipe = ({ navigation, route }) => {
           </View>
         )}
       />
+      <RenderHeaderBar navigation={navigation} />
     </View>
   );
 };

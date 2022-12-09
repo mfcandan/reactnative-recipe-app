@@ -28,6 +28,7 @@ const styles = StyleSheet.create({
   recipeCreatorCardContainer: {
     flex: 1,
     borderRadius: SIZES.radius,
+    overflow: "hidden",
   },
 });
 
