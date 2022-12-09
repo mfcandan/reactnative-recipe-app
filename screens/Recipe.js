@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import { View, Text, Animated, Image } from "react-native";
+import RecipeCreatorCardInfo from "../components/RecipeCreatorCardInfo";
 import { COLORS, FONTS } from "../constants";
 
 const HEADER_HEIGHT = 350;
@@ -18,13 +19,13 @@ const Recipe = ({ navigation, route }) => {
     return (
       <View
         style={{
+          flex: 1,
           alignItems: "center",
           overflow: "hidden",
           marginTop: -1000,
           paddingTop: 1000,
         }}
       >
-        {/* BACKGROUND IMAGE */}
         <Animated.Image
           source={selectedRecipe?.image}
           resizeMode="contain"
@@ -47,7 +48,27 @@ const Recipe = ({ navigation, route }) => {
             ],
           }}
         />
-        {/* RECIPE CREATOR CARD */}
+
+        <Animated.View
+          style={{
+            position: "absolute",
+            bottom: 10,
+            left: 30,
+            right: 30,
+            height: 80,
+            transform: [
+              {
+                translateY: scrollY.interpolate({
+                  inputRange: [0, 50, 250],
+                  outputRange: [0, 0, 100],
+                  extrapolate: "clamp",
+                }),
+              },
+            ],
+          }}
+        >
+          <RecipeCreatorCardInfo selectedRecipe={selectedRecipe} />
+        </Animated.View>
       </View>
     );
   };
